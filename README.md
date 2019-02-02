@@ -4,7 +4,7 @@
 ### For Quotes (http://api.paperquotes.com/apiv1/documentation/)
 
 ## Programming languages and Tools
-1. Valina JavaScript
+1. Vanila JavaScript
 2. Visual Studio Code
 3. Bootstrap 4
 
