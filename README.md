@@ -4,5 +4,5 @@
 ### For Quotes (http://api.paperquotes.com/apiv1/documentation/)
 
 ## Remember
-1. Want to contribute, push your code on 'develop' branch.
+1. Want to contribute, push your code on 'your-feature-name' branch.
 2. 'master' branch is for production.
