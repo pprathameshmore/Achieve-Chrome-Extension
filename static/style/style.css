@@ -1,0 +1,26 @@
+body {
+    background-image: url("/static/images/background.jpg");
+    background-repeat: no-repeat;
+    position: fixed;
+    background-size: cover;
+    font-family: 'Roboto Slab', serif;
+    height: 100%;
+    width: 100%;
+}
+
+.main-container {
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.time {
+    font-size: 1050%;
+}
+
+.message {
+    font-size: 337%;
+}

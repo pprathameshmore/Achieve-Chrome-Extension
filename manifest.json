@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Achieve",
+    "description": "Archive is Chrome Extension. It delivers daily motivational quotes and beautiful images! That motivates you to do work!",
+    "version": "1.0",
+    "author": "",
+    "browser_action": {
+        "default_icon": "icon.jpg",
+        "default_title": "What is your main focus for taday?"
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    
+    "permissions": ["activeTab"]
+}
