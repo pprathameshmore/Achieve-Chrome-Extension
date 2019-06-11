@@ -9,7 +9,8 @@
 3️⃣ Bootstrap 4
 4️⃣ jQuery
 
-✔️ New fetures are comming
+💩  Clone of Momentum (https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca?hl=en)
+💬  New feature will be added
 
 ## 📢 Remember 
 1. Want to contribute, push your code on 'your-feature-name' branch.
