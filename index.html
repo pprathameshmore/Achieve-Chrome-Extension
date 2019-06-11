@@ -6,30 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Tab</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style/style.css">
+    <script src="/static/scripts/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <script src="static/scripts/main.js"></script>
+    
 </head>
 
-<body onload="getTime()">
-    <div class="main-container container text-center" style="color: white">
-        <div class="time" id="current-time">
-        </div>
-        <div class="message">
-            Good morning
-        </div>
-        <div class="todo">
-            <h3>What is your main focus for today?</h3>
+<body>
+    <div class="container-fluid">
+        <div class="main-container text-center" style="color: white">
+            <div class="time" id="current-time">
+            </div>
+            <div class="message" id="greeting-message">
+            </div>
+            <div class="todo" id="todo-container">
+                <h3 id="label-focus" style="font-size: 250%">What is your main focus for today?</h3>
+                <div class="form">
+                    <input class="form-control" id="input-focus" type="text" placeholder="What's in your mind?">
+                </div>
+            </div>
+            <div id="quotes">
+            </div>
         </div>
     </div>
+
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
+<script src="/static/scripts/main.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 
 </html>

@@ -5,7 +5,7 @@
     "version": "1.0",
     "author": "",
     "browser_action": {
-        "default_icon": "icon.jpg",
+       
         "default_title": "What is your main focus for taday?"
     },
     "chrome_url_overrides": {
