@@ -2,35 +2,45 @@ window.onload = function () {
     init();
 }
 
+
 function init() {
     getTime();
-    unsplashGetPhotos();
     inputFocusText();
     setFocusText();
     editFocusText();
+    unsplashGetPhotos();
     getQuotes();
 }
 
-function getQuotes() {
-    $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&callback=", function (a) {
-        $("#quotes").append(a[0].content + "<p>" + a[0].title + "</p>")
-    });
-}
+//Global variables
+var systemDate = new Date();
+var hours = systemDate.getHours();
+var minutes = systemDate.getMinutes();
+
+var imageURL;
 
 function unsplashGetPhotos() {
-
-    var imageURL;
-
+    
     $.getJSON("https://api.unsplash.com/photos/random?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe", function (data) {
         //console.log(data.urls);
         $.each(data.urls, function (index, value) {
-            imageURL = data.urls.regular;
-            $("body").css("background-image", "url( " + imageURL + ")");
+            imageURL = data.urls.full;
+            //ImgCache.cacheFile(imageURL);
+            //$("body").css("background-image", "url( " + imageURL + ")");
         });
     });
-
-
+    return imageURL;
 }
+
+function changeImage(hours) {
+    var url;
+    if (hours == 8) {
+        localStorage.setItem("url",  unsplashGetPhotos());
+        $("body").css("background-image", "url( " + localStorage.getItem("url") + ")");
+    } else {
+        //$("body").css("background-image", "url( " + url + ")");
+    }
+} 
 
 function setFocusText() {
     inputFocusText();
@@ -58,15 +68,10 @@ function checkLocalStorageForFocus() {
     } else {
         isLocalStorageAvailable = false;
     }
-
     Boolean(isLocalStorageAvailable);
 }
 
 function getTime() {
-
-    var systemDate = new Date();
-    var hours = systemDate.getHours();
-    var minutes = systemDate.getMinutes();
 
     showGreetingMessage(hours);
     hours = hours % 12;
@@ -114,20 +119,14 @@ function showGreetingMessage(hours) {
 
     if (hours >= 4 && hours <= 9) {
         textNode.innerText = "Good morning";
-    } else {
-        textNode.innerText = "Progress, Not perfection";
     }
 
     if (hours >= 12 && hours <= 16) {
         textNode.innerText = "Good aftenoon";
-    } else {
-        textNode.innerText = "Nothing will work unless you do";
     }
 
     if (hours >= 17 && hours <= 21) {
         textNode.textContent = "Good evening";
-    } else {
-        textNode.textContent = "Don't hate what you don't understand";
     }
 
     if (hours >= 22 && hours <= 00) {
@@ -141,6 +140,7 @@ function inputFocusText() {
         if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
             document.getElementsByTagName("p").innerHTML = localStorage.getItem("focusToday");
+            location.reload(true);
         }
     })
 }
@@ -151,3 +151,14 @@ function editFocusText() {
         inputFocusText();
     })
 }
+
+
+function getQuotes() {
+    var todayQuote;
+        $.getJSON("https://api.quotable.io/random", function (a) {
+            $("#quotes").append(a.content + "<p>" + a.author + "</p>")
+            //localStorage.setItem("quote", a.content + "\n" + a.author);
+        });
+        
+    }
+

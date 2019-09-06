@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: yellow;
+    background-image: url("/static/images/background.jpg");
     background-repeat: no-repeat;
     position: fixed;
     background-size: cover;
@@ -36,6 +36,5 @@ body {
 
 #quotes {
     margin-top: 20%;
-    font-size: 100%;
-    font-weight: bold;
+    font-size: 120%;
 }

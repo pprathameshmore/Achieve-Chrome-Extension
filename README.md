@@ -5,8 +5,8 @@
 
 ## Programming languages and Tools
 1. Vanilla JavaScript
-2. Visual Studio Code
-3. Bootstrap 4
+1. Visual Studio Code
+2. Bootstrap 4
 
 ## Remember
 1. Want to contribute, push your code on 'your-feature-name' branch.
