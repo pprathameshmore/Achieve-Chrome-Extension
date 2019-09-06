@@ -2,7 +2,6 @@ window.onload = function () {
     init();
 }
 
-
 function init() {
     getTime();
     inputFocusText();
@@ -26,21 +25,11 @@ function unsplashGetPhotos() {
         $.each(data.urls, function (index, value) {
             imageURL = data.urls.full;
             //ImgCache.cacheFile(imageURL);
-            //$("body").css("background-image", "url( " + imageURL + ")");
+            $("body").css("background-image", "url( " + imageURL + ")");
         });
     });
-    return imageURL;
 }
 
-function changeImage(hours) {
-    var url;
-    if (hours == 8) {
-        localStorage.setItem("url",  unsplashGetPhotos());
-        $("body").css("background-image", "url( " + localStorage.getItem("url") + ")");
-    } else {
-        //$("body").css("background-image", "url( " + url + ")");
-    }
-} 
 
 function setFocusText() {
     inputFocusText();
