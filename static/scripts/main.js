@@ -4,12 +4,12 @@ window.onload = function () {
 
 //Global variables
 var imageURL;
-var link;
+var name;
 
 function init() {
     getTime();
-    inputFocusText();
     setFocusText();
+    editFocusText();
     showGreetingMessage(new Date().getHours());
     getQuotes();
     fetchImage();
@@ -43,6 +43,8 @@ function unsplashGetPhotos() {
         });
     });
 }
+
+
 
 function setFocusText() {
     inputFocusText();
@@ -101,7 +103,7 @@ function showGreetingMessage(hours, ampm) {
 
     var textNode = document.getElementById('greeting-message');
 
-    if (hours >= 4 && hours <= 9) {
+    if (hours >= 4 && hours <= 11) {
         textNode.innerText = "Good morning";
     }
 
@@ -143,11 +145,4 @@ function getQuotes() {
         //localStorage.setItem("quote", a.content + "\n" + a.author);
     });
 }
-
-
-$("#download-btn").on('click', function () {
-    //downloadImage();  
-    var link = $("#download-btn");
-    link.href = downloadImage();
-});
 
