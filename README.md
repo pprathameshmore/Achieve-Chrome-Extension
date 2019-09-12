@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension)
 ![](https://img.shields.io/twitter/url/https/github.com/pprathameshmore/Achieve-Chrome-Extension?style=social)
 # Screenshot
-<img src="screenshots.jpg"
+<img src="screenshots.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
