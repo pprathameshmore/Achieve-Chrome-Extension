@@ -1,3 +1,4 @@
+![](icons64.png)
 # Achieve - Chrome Extension 
 
 ## Achieve is Chrome Extension. It delivers daily motivational quotes and beautiful images! That motivates you to do work!
