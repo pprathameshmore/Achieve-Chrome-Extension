@@ -6,7 +6,7 @@
 <img src="screenshots.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
-     
+
 ### It uses Unsplash API for images (https://github.com/unsplash/unsplash-js)
 ### For Quotes (https://github.com/lukePeavey/quotable/)
 
@@ -14,4 +14,3 @@
 1. Vanilla JavaScript
 2. Visual Studio Code
 3. jQuery  
-

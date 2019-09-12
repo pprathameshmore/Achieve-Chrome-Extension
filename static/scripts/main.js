@@ -2,34 +2,47 @@ window.onload = function () {
     init();
 }
 
+//Global variables
+var imageURL;
+var link;
+
 function init() {
     getTime();
     inputFocusText();
     setFocusText();
-    editFocusText();
-    unsplashGetPhotos();
+    showGreetingMessage(new Date().getHours());
     getQuotes();
+    fetchImage();
 }
 
-//Global variables
-var systemDate = new Date();
-var hours = systemDate.getHours();
-var minutes = systemDate.getMinutes();
 
-var imageURL;
+$("#change-btn").on('click', function () {
+    unsplashGetPhotos();
+    alert("Reload page");
+});
+
+function fetchImage() {
+    if (localStorage.getItem("url") === null) {
+        var path = "/static/images/background.jpg";
+        $("body").css("background-image", "url(" + path + ")");
+    } else {
+        $("body").css("background-image", "url(" + localStorage.getItem("url") + ")");
+    }
+}
+
+function removeOldImage() {
+    localStorage.removeItem("url");
+}
 
 function unsplashGetPhotos() {
-    
     $.getJSON("https://api.unsplash.com/photos/random?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe", function (data) {
         //console.log(data.urls);
         $.each(data.urls, function (index, value) {
             imageURL = data.urls.full;
-            //ImgCache.cacheFile(imageURL);
-            $("body").css("background-image", "url( " + imageURL + ")");
+            localStorage.setItem("url", imageURL);
         });
     });
 }
-
 
 function setFocusText() {
     inputFocusText();
@@ -61,38 +74,20 @@ function checkLocalStorageForFocus() {
 }
 
 function getTime() {
-
-    showGreetingMessage(hours);
+    var ampm;
+    var systemDate = new Date();
+    var hours = systemDate.getHours();
+    var minutes = systemDate.getMinutes();
+    ampm = hours >= 12 ? "pm" : "am";
     hours = hours % 12;
-
     if (hours == 0) {
         hours = 12;
     }
-
     _hours = checkTimeAddZero(hours);
     _minutes = checkTimeAddZero(minutes);
-
     document.getElementById('current-time').innerHTML = _hours + ":" + _minutes;
-    var t = setTimeout(getTime, 500);
-
-
-    var currentTime = hours + minutes
-    return currentTime;
+    setInterval(getTime, 1000);
 }
-
-function ampm(hours) {
-
-    var ampm;
-
-    if (hours >= 12) {
-        ampm = "PM";
-    } else {
-        ampm = "AM";
-    }
-
-    return ampm;
-}
-
 
 //Function add zero
 function checkTimeAddZero(i) {
@@ -102,7 +97,7 @@ function checkTimeAddZero(i) {
     return i;
 }
 
-function showGreetingMessage(hours) {
+function showGreetingMessage(hours, ampm) {
 
     var textNode = document.getElementById('greeting-message');
 
@@ -129,7 +124,7 @@ function inputFocusText() {
         if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
             document.getElementsByTagName("p").innerHTML = localStorage.getItem("focusToday");
-            location.reload(true);
+            window.location.reload(true);
         }
     })
 }
@@ -143,11 +138,16 @@ function editFocusText() {
 
 
 function getQuotes() {
-    var todayQuote;
-        $.getJSON("https://api.quotable.io/random", function (a) {
-            $("#quotes").append(a.content + "<p>" + a.author + "</p>")
-            //localStorage.setItem("quote", a.content + "\n" + a.author);
-        });
-        
-    }
+    $.getJSON("https://api.quotable.io/random", function (a) {
+        $("#quotes").append(a.content + "<p>" + a.author + "</p>")
+        //localStorage.setItem("quote", a.content + "\n" + a.author);
+    });
+}
+
+
+$("#download-btn").on('click', function () {
+    //downloadImage();  
+    var link = $("#download-btn");
+    link.href = downloadImage();
+});
 
