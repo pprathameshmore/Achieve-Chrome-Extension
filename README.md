@@ -1,7 +1,10 @@
 # Achieve - Chrome Extension 
 
-## Archive is Chrome Extension. It delivers daily motivational quotes and beautiful images! That motivates you to do work!
-
+## Achieve is Chrome Extension. It delivers daily motivational quotes and beautiful images! That motivates you to do work!
+![](https://img.shields.io/github/license/pprathameshmore/Achieve-Chrome-Extension)
+![](https://img.shields.io/github/forks/pprathameshmore/Achieve-Chrome-Extension)
+![](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension)
+![](https://img.shields.io/twitter/url/https/github.com/pprathameshmore/Achieve-Chrome-Extension?style=social)
 # Screenshot
 <img src="screenshots.jpg"
      alt="Markdown Monster icon"
