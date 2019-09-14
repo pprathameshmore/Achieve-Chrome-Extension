@@ -10,6 +10,10 @@
 <img src="screenshots.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
+     
+<img src="screenshots2.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
 
 ### It uses Unsplash API for images (https://github.com/unsplash/unsplash-js)
 ### For Quotes (https://github.com/lukePeavey/quotable/)
