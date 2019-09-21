@@ -2,9 +2,7 @@ window.onload = function () {
     init();
 }
 
-//Global variables
-var imageURL;
-var name;
+var clientID = "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
 
 function init() {
     getTime();
@@ -25,8 +23,12 @@ function fetchImage() {
     if (localStorage.getItem("url") === null) {
         var path = "/static/images/background.jpg";
         $("body").css("background-image", "url(" + path + ")");
+        $("#credit").append( '<h5 class="display-4">' + Unslpash + '</h5>');
     } else {
         $("body").css("background-image", "url(" + localStorage.getItem("url") + ")");
+        $("#credit").append( '<h5 class="display-4">' + localStorage.getItem("name") + ' on Unsplash</h5>');
+        var obj = localStorage.getItem("link");
+        $("#navigate").append( '<a target="_blank"  style="color : white" href=' + obj + '>'  + ' See on Unsplash</a>');
     }
 }
 
@@ -37,9 +39,10 @@ function removeOldImage() {
 function unsplashGetPhotos() {
     $.getJSON("https://api.unsplash.com/photos/random?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe", function (data) {
         //console.log(data.urls);
-        $.each(data.urls, function (index, value) {
-            imageURL = data.urls.full;
-            localStorage.setItem("url", imageURL);
+        $.each(data, function (index, value) {
+            localStorage.setItem("url", data.urls.full);
+            localStorage.setItem("name", data.user.name);
+            localStorage.setItem("link", data.links.html);
         });
     });
 }
@@ -69,6 +72,7 @@ function checkLocalStorageForFocus() {
 
     if (localStorage.getItem("focusText") === null) {
         isLocalStorageAvailable = true;
+
     } else {
         isLocalStorageAvailable = false;
     }
@@ -99,7 +103,7 @@ function checkTimeAddZero(i) {
     return i;
 }
 
-function showGreetingMessage(hours, ampm) {
+function showGreetingMessage(hours) {
 
     var textNode = document.getElementById('greeting-message');
 
@@ -141,7 +145,7 @@ function editFocusText() {
 
 function getQuotes() {
     $.getJSON("https://api.quotable.io/random", function (a) {
-        $("#quotes").append(a.content + "<p>" + a.author + "</p>")
+        $("#quotes").append("<h4>" + a.content + "</h4>" + "<h5>" + a.author + "</h5>")
         //localStorage.setItem("quote", a.content + "\n" + a.author);
     });
 }
