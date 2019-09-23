@@ -16,7 +16,7 @@
      style="float: left; margin-right: 10px;" />
 
 ### It uses Unsplash API for images (https://github.com/unsplash/unsplash-js)
-### For Quotes (https://github.com/lukePeavey/quotable/)
+### For Quotes (https://github.com/pprathameshmore/QuoteGarden)
 
 ## Programming languages and Tools
 1. Vanilla JavaScript
