@@ -3,14 +3,21 @@ html {
 }
 
 body {
-    background-image: url("/static/images/background.jpg");
-    background-repeat: no-repeat;
+    background-color: black !important;
+    width: 100%;
+    height: 100%;
+}
+
+.background-container {
     position: fixed;
+    background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Roboto Slab', serif;
     height: 100%;
     width: 100%;
     background-position: center;
+    opacity: 0;
+    -webkit-transition: opacity 1.5s;
 }
 
 .main-container {
@@ -23,6 +30,9 @@ body {
     bottom: 0;
     right: 0;
     text-align: center;
+    text-shadow: #191919 2px 2px 30px;
+    opacity: 0;
+    -webkit-transition: opacity 2s;
 }
 
 .time {
@@ -30,12 +40,12 @@ body {
 }
 
 .message {
-    font-size: 337%;
+    font-size: 300%;
     margin-bottom: 40px;
 }
 
 #quotes {
-    margin-top: 8%;
+    margin-top: 6%;
     font-size: 120%;
 }
 
@@ -46,6 +56,7 @@ body {
     height:0px;
     background:url('/static/images/refresh.png');
     padding:15px;
+    margin-top: 20px;
 }
 
 #change-btn:hover {
