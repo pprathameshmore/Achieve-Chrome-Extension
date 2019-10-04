@@ -14,8 +14,8 @@ body {
 }
 
 .main-container {
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
     margin: auto;
     position: absolute;
     top: 0;
@@ -35,6 +35,19 @@ body {
 }
 
 #quotes {
-    margin-top: 15%;
+    margin-top: 8%;
     font-size: 120%;
+}
+
+#change-btn {
+    cursor: pointer; 
+    margin: auto;
+    width:0px;
+    height:0px;
+    background:url('/static/images/refresh.png');
+    padding:15px;
+}
+
+#change-btn:hover {
+    background: url('/static/images/refresh_gray.png');
 }
