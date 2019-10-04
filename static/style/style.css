@@ -13,9 +13,10 @@ body {
     background-position: center;
 }
 
+
 .main-container {
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
     margin: auto;
     position: absolute;
     top: 0;
@@ -31,15 +32,37 @@ body {
 }
 
 .message {
-    font-size: 280%;
+    font-size: 350%;
     margin-bottom: 20px;
 }
 
 #quotes {
+    font-family: 'Dancing Script', cursive;
     margin-top: 30px;
-    font-size: 120%;
+}
+
+#quotes h4 {
+    font-size: 30px;
+}
+
+#quotes h5 {
+    font-weight: bold;
+    font-size: 30px;
 }
 
 #credit, #navigate, #credit > h5 {
-    font-size: 10px !important;
+    font-size: 14px !important;
+}
+
+#change-btn {
+    cursor: pointer; 
+    margin: auto;
+    width:0px;
+    height:0px;
+    background:url('/static/images/refresh.png');
+    padding:15px;
+}
+
+#change-btn:hover {
+    background: url('/static/images/refresh_gray.png');
 }
