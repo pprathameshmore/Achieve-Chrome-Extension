@@ -23,12 +23,11 @@ function fetchImage() {
     if (localStorage.getItem("url") === null) {
         var path = "/static/images/background.jpg";
         $("body").css("background-image", "url(" + path + ")");
-        $("#credit").html("");
-        $("#credit").append( '<h5 class="display-4">' + Unslpash + '</h5>');
+        $("#credit").append( '<h5 class="display-4">See on Unsplash</h5>');
     } else {
         $("body").css("background-image", "url(" + localStorage.getItem("url") + ")");
-        $("#credit").html("");
-        $("#credit").append( '<h5 class="display-4">' + localStorage.getItem("name") + ' on Unsplash</h5>');
+        
+        $("#credit").append( '<h5 class="display-4">' + localStorage.getItem("name") + ' </h5>');
         var obj = localStorage.getItem("link");
         $("#navigate").html("");
         $("#navigate").append( '<a target="_blank"  style="color : white" href=' + obj + '>'  + ' See on Unsplash</a>');
