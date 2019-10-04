@@ -52,18 +52,33 @@ function unsplashGetPhotos() {
 function setFocusText() {
     inputFocusText();
     var getFocusText = localStorage.getItem("focusToday");
-    var p = document.createElement('p');
-    var textNode = document.createTextNode(getFocusText);
-    p.appendChild(textNode);
-    var todoContainer = document.getElementById('todo-container');
-    todoContainer.appendChild(p);
-    var inputFocus = document.getElementById('input-focus');
-    if (checkLocalStorageForFocus) {
-        inputFocus.style.display = "none";
-    } else {
-        inputFocus.style.display = "block";
+    if (getFocusText != null) {
+        var p = document.createElement('p');
+        var textNode = document.createTextNode(getFocusText);
+        p.appendChild(textNode);
+        var todoContainer = document.getElementById('todo-container');
+        todoContainer.appendChild(p);
+        var inputFocus = document.getElementById('input-focus');
+        if (checkLocalStorageForFocus) {
+            inputFocus.style.display = "none";
+        } else {
+            inputFocus.style.display = "block";
+        }
     }
-
+    else {
+        var default_text = 'Click here to add'
+        var p = document.createElement('p');
+        var textNode = document.createTextNode(default_text);
+        p.appendChild(textNode);
+        var todoContainer = document.getElementById('todo-container');
+        todoContainer.appendChild(p);
+        var inputFocus = document.getElementById('input-focus');
+        if (checkLocalStorageForFocus) {
+            inputFocus.style.display = "none";
+        } else {
+            inputFocus.style.display = "block";
+        }
+    }
 }
 
 function checkLocalStorageForFocus() {
