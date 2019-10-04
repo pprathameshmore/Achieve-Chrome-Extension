@@ -29,7 +29,6 @@ function fetchImage() {
         
         $("#credit").append( '<h5 class="display-4">' + localStorage.getItem("name") + ' </h5>');
         var obj = localStorage.getItem("link");
-        $("#navigate").html("");
         $("#navigate").append( '<a target="_blank"  style="color : white" href=' + obj + '>'  + ' See on Unsplash</a>');
     }
 }
