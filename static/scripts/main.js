@@ -96,7 +96,7 @@ function getTime() {
     _hours = checkTimeAddZero(hours);
     _minutes = checkTimeAddZero(minutes);
     document.getElementById('current-time').innerHTML = _hours + ":" + _minutes;
-    //setInterval(getTime, 1000);
+    setInterval(getTime, 1000);
 }
 
 //Function add zero
