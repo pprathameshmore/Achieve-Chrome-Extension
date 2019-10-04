@@ -16,18 +16,21 @@ function init() {
 
 $("#change-btn").on('click', function () {
     unsplashGetPhotos();
-    alert("Reload page");
+    //alert("Reload page");
 });
 
 function fetchImage() {
     if (localStorage.getItem("url") === null) {
         var path = "/static/images/background.jpg";
         $("body").css("background-image", "url(" + path + ")");
+        $("#credit").html("");
         $("#credit").append( '<h5 class="display-4">' + Unslpash + '</h5>');
     } else {
         $("body").css("background-image", "url(" + localStorage.getItem("url") + ")");
+        $("#credit").html("");
         $("#credit").append( '<h5 class="display-4">' + localStorage.getItem("name") + ' on Unsplash</h5>');
         var obj = localStorage.getItem("link");
+        $("#navigate").html("");
         $("#navigate").append( '<a target="_blank"  style="color : white" href=' + obj + '>'  + ' See on Unsplash</a>');
     }
 }
@@ -44,6 +47,7 @@ function unsplashGetPhotos() {
             localStorage.setItem("name", data.user.name);
             localStorage.setItem("link", data.links.html);
         });
+        fetchImage();
     });
 }
 
@@ -92,7 +96,7 @@ function getTime() {
     _hours = checkTimeAddZero(hours);
     _minutes = checkTimeAddZero(minutes);
     document.getElementById('current-time').innerHTML = _hours + ":" + _minutes;
-    setInterval(getTime, 1000);
+    //setInterval(getTime, 1000);
 }
 
 //Function add zero
