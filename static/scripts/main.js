@@ -145,6 +145,8 @@ function showGreetingMessage(hours) {
 
 function inputFocusText() {
     var inputFocusText = document.getElementById('input-focus');
+    inputFocusText.value = localStorage.getItem("focusToday");
+    console.log(document.getElementsByTagName('p').innerText)
     inputFocusText.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
@@ -158,6 +160,7 @@ function editFocusText() {
     $('p').click(function () {
         document.getElementById("input-focus").style.display = "block";
         inputFocusText();
+        this.style.display = "none";
     })
 }
 
