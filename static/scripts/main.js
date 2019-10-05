@@ -16,25 +16,24 @@ function init() {
 
 $("#change-btn").on('click', function () {
     unsplashGetPhotos();
-    //alert("Reload page");
 });
 
 function fetchImage() {
     var backgroundImg = new Image;
-    $(".background-container").css("opacity",0)
-    backgroundImg.onload = function() {
+    $(".background-container").css("opacity", 0)
+    backgroundImg.onload = function () {
         $(".background-container").css("background-image", "url(" + this.src + ")");
-        $(".background-container").css("opacity",1)
-        $(".main-container").css("opacity",1)
+        $(".background-container").css("opacity", 1)
+        $(".main-container").css("opacity", 1)
     }
 
     if (localStorage.getItem("url") === null) {
         backgroundImg.src = "/static/images/background.jpg";
-        $("#credit").html( '<h5 class="display-4">See on Unsplash</h5>');
+        
     } else {
         backgroundImg.src = localStorage.getItem("url");
         $("#credit").html(localStorage.getItem("name"));
-        $("#navigate").html('<a target="_blank"  style="color : white" href=' + 
+        $("#navigate").html('<a target="_blank"  style="color : white; font-size:130%;" href=' +
             localStorage.getItem("link") + '>See on Unsplash</a>');
     }
 }
@@ -70,11 +69,12 @@ function setFocusText() {
             inputFocus.style.display = "none";
         } else {
             inputFocus.style.display = "block";
+            p.style.setProperty("style", "font-size: 150%");
         }
     }
     else {
         var default_text = 'Click here to add'
-        var p = document.createElement('p');
+        var p = document.createElement('p'); 
         var textNode = document.createTextNode(default_text);
         p.appendChild(textNode);
         var todoContainer = document.getElementById('todo-container');
@@ -116,7 +116,7 @@ function getTime() {
     //Only update if time is changed, this will prevent unnecessary re-render
     var timeInDOM = document.getElementById('current-time').innerHTML;
     var timeString = _hours + ":" + _minutes;
-    if(timeInDOM !== timeString) {
+    if (timeInDOM !== timeString) {
         document.getElementById('current-time').innerHTML = timeString;
     }
     setInterval(getTime, 1000);
@@ -134,7 +134,7 @@ function showGreetingMessage(hours) {
 
     var textNode = document.getElementById('greeting-message');
 
-    if(hours >= 0 && hours <=3){
+    if (hours >= 0 && hours <= 3) {
         textNode.innerText = "Hello Ninja!";
     }
 
@@ -157,6 +157,8 @@ function showGreetingMessage(hours) {
 
 function inputFocusText() {
     var inputFocusText = document.getElementById('input-focus');
+    inputFocusText.value = localStorage.getItem("focusToday");
+    console.log(document.getElementsByTagName('p').innerText)
     inputFocusText.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
@@ -170,14 +172,15 @@ function editFocusText() {
     $('p').click(function () {
         document.getElementById("input-focus").style.display = "block";
         inputFocusText();
+        this.style.display = "none";
     })
 }
 
 
 function getQuotes() {
     $.getJSON("https://api.quotable.io/random", function (a) {
-        $("#quotes").append("<h4>" + a.content + "</h4>" + "<h5>" + a.author + "</h5>")
-        //localStorage.setItem("quote", a.content + "\n" + a.author);
+        $("#quotes").append("<h4 style='font-size:150%'>" + a.content + "</h4>" + "<h5>" + a.author + "</h5>")
+        //localStorage.setItem("quote", a.content + "\n" + a.author style="font-size: 550%");
     });
 }
 
