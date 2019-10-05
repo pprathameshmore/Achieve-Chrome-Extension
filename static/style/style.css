@@ -84,3 +84,8 @@ body {
 #todo-container p {
     font-size: 200%;
 }
+
+#input-focus {
+    font-size: 150%;
+    width: 350px;
+}
