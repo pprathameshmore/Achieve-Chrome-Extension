@@ -11,7 +11,7 @@
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
      
-<img src="screenshot2.jpg"
+<img src="screenshot.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
