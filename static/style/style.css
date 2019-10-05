@@ -73,6 +73,7 @@ body {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white !important;
     opacity: 1 !important;
+    font-size: 100% !important;
     /* Firefox */
 }
 
