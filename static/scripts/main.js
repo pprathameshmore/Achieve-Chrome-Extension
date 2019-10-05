@@ -51,6 +51,8 @@ function unsplashGetPhotos() {
             localStorage.setItem("link", data.links.html);
         });
         fetchImage();
+    }).fail(function() {
+        alert('Woops Rate Limit Exceeded'); // or whatever
     });
 }
 
