@@ -29,7 +29,7 @@ function fetchImage() {
 
     if (localStorage.getItem("url") === null) {
         backgroundImg.src = "/static/images/background.jpg";
-        
+
     } else {
         backgroundImg.src = localStorage.getItem("url");
         $("#credit").html(localStorage.getItem("name"));
@@ -57,48 +57,22 @@ function unsplashGetPhotos() {
 
 function setFocusText() {
     inputFocusText();
-    var getFocusText = localStorage.getItem("focusToday");
-    if (getFocusText != null) {
-        var p = document.createElement('p');
-        var textNode = document.createTextNode(getFocusText);
+    const p = document.createElement('p');
+    const todoContainer = document.getElementById('todo-container');
+    const inputFocus = document.getElementById('input-focus');
+    p.id = 'focus-text';
+
+    const getFocusText = localStorage.getItem('focusToday');
+
+    if (getFocusText) {
+        const textNode = document.createTextNode(getFocusText);
         p.appendChild(textNode);
-        var todoContainer = document.getElementById('todo-container');
-        todoContainer.appendChild(p);
-        var inputFocus = document.getElementById('input-focus');
-        if (checkLocalStorageForFocus) {
-            inputFocus.style.display = "none";
-        } else {
-            inputFocus.style.display = "block";
-            p.style.setProperty("style", "font-size: 150%");
-        }
-    }
-    else {
-        var default_text = 'Click here to add'
-        var p = document.createElement('p'); 
-        var textNode = document.createTextNode(default_text);
-        p.appendChild(textNode);
-        var todoContainer = document.getElementById('todo-container');
-        todoContainer.appendChild(p);
-        var inputFocus = document.getElementById('input-focus');
-        if (checkLocalStorageForFocus) {
-            inputFocus.style.display = "none";
-        } else {
-            inputFocus.style.display = "block";
-        }
-    }
-}
-
-function checkLocalStorageForFocus() {
-
-    var isLocalStorageAvailable = false;
-
-    if (localStorage.getItem("focusText") === null) {
-        isLocalStorageAvailable = true;
-
     } else {
-        isLocalStorageAvailable = false;
+        const default_text = 'Click here to add'
+        const textNode = document.createTextNode(default_text);
+        p.appendChild(textNode);
     }
-    Boolean(isLocalStorageAvailable);
+    todoContainer.appendChild(p);
 }
 
 function getTime() {
@@ -110,10 +84,11 @@ function getTime() {
     const _hours = checkTimeAddZero(hours);
     const _minutes = checkTimeAddZero(minutes);
     //Only update if time is changed, this will prevent unnecessary re-render
-    const timeInDOM = $('#current-time').html();
+    const timeInDOMElement = document.getElementById('current-time');
+    const timeInDOM = timeInDOMElement.innerHTML;
     const timeString = `${_hours}:${_minutes}`;
     if (timeInDOM !== timeString) {
-        $('#current-time').html(timeString);
+        timeInDOMElement.innerHTML = timeString;
     }
     setInterval(getTime, 1000);
 }
@@ -152,24 +127,25 @@ function showGreetingMessage(hours) {
 }
 
 function inputFocusText() {
-    var inputFocusText = document.getElementById('input-focus');
-    inputFocusText.value = localStorage.getItem("focusToday");
-    console.log(document.getElementsByTagName('p').innerText)
-    inputFocusText.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            localStorage.setItem("focusToday", inputFocusText.value);
-            document.getElementsByTagName("p").innerHTML = localStorage.getItem("focusToday");
+    const inputFocusText = document.getElementById('input-focus');
+    inputFocusText.value = localStorage.getItem('focusToday');
+    inputFocusText.addEventListener('keyup', function (event) {
+        if (event.keyCode === 13) {
+            localStorage.setItem('focusToday', this.value);
             window.location.reload(true);
         }
-    })
+    });
 }
 
 function editFocusText() {
-    $('p').click(function () {
-        document.getElementById("input-focus").style.display = "block";
-        inputFocusText();
-        this.style.display = "none";
-    })
+    const focusText = document.getElementById('focus-text');
+    const inputFocus = document.getElementById('input-focus');
+    focusText.onclick = function onFocusTextClick() {
+        inputFocus.style.display = 'block';
+        inputFocus.focus();
+        inputFocus.select();
+        this.style.display = 'none';
+    }
 }
 
 
