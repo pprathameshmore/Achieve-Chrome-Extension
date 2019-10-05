@@ -33,8 +33,8 @@ function fetchImage() {
     } else {
         backgroundImg.src = localStorage.getItem("url");
         $("#credit").html(localStorage.getItem("name"));
-        $("#navigate").html(`<a target="_blank"  style="color : white; font-size:130%;" href=
-            ${localStorage.getItem("link")}>See on Unsplash</a>`);
+        $("#navigate").html(`<a target="_blank"  style="color : white; font-size:130%;" href="
+            ${localStorage.getItem("link")}">See on Unsplash</a>`);
     }
 }
 
