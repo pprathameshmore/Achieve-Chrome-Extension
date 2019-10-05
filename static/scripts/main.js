@@ -102,22 +102,18 @@ function checkLocalStorageForFocus() {
 }
 
 function getTime() {
-    var ampm;
-    var systemDate = new Date();
-    var hours = systemDate.getHours();
-    var minutes = systemDate.getMinutes();
-    ampm = hours >= 12 ? "pm" : "am";
+    const systemDate = new Date();
+    let hours = systemDate.getHours();
+    let minutes = systemDate.getMinutes();
     hours = hours % 12;
-    if (hours == 0) {
-        hours = 12;
-    }
-    _hours = checkTimeAddZero(hours);
-    _minutes = checkTimeAddZero(minutes);
+    hours = hours === 0 ? 12 : hours;
+    const _hours = checkTimeAddZero(hours);
+    const _minutes = checkTimeAddZero(minutes);
     //Only update if time is changed, this will prevent unnecessary re-render
-    var timeInDOM = document.getElementById('current-time').innerHTML;
-    var timeString = _hours + ":" + _minutes;
+    const timeInDOM = $('#current-time').html();
+    const timeString = `${_hours}:${_minutes}`;
     if (timeInDOM !== timeString) {
-        document.getElementById('current-time').innerHTML = timeString;
+        $('#current-time').html(timeString);
     }
     setInterval(getTime, 1000);
 }
@@ -125,7 +121,7 @@ function getTime() {
 //Function add zero
 function checkTimeAddZero(i) {
     if (i < 10) {
-        i = "0" + i
+        i = `0${i}`;
     }
     return i;
 }
