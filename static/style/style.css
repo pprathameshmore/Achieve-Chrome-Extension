@@ -18,6 +18,7 @@ body {
     background-position: center;
     opacity: 0;
     -webkit-transition: opacity 1.5s;
+    transition: opacity 1.5s;
 }
 
 .main-container {
@@ -33,6 +34,7 @@ body {
     text-shadow: #191919 2px 2px 30px;
     opacity: 0;
     -webkit-transition: opacity 2s;
+    transition: opacity 2s;
 }
 
 .time {

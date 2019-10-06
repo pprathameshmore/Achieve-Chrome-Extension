@@ -31,12 +31,8 @@ function fetchImage() {
         backgroundImg.src = "/static/images/background.jpg";
     } else {
         backgroundImg.src = localStorage.getItem("url");
-        $("#credit").html(localStorage.getItem("name"));
-        $("#navigate").html(
-            '<a target="_blank"  style="color : white; font-size:130%;" href=' +
-            localStorage.getItem("link") +
-            ">See on Unsplash</a>"
-        );
+        $("#navigate").html(`<a target="_blank"  style="color : white; font-size:130%;" href="
+            ${localStorage.getItem("link")}">See on Unsplash</a>`);
     }
 }
 
@@ -45,8 +41,7 @@ function removeOldImage() {
 }
 
 function unsplashGetPhotos() {
-    $.getJSON("https://api.unsplash.com/photos/random?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe", function (data) {
-        //console.log(data.urls);
+    $.getJSON(`https://api.unsplash.com/photos/random${clientID}`, function (data) {
         $.each(data, function (index, value) {
             localStorage.setItem("url", data.urls.full);
             localStorage.setItem("name", data.user.name);
@@ -92,25 +87,19 @@ function setFocusText() {
 
 function checkLocalStorageForFocus() {
     var isLocalStorageAvailable = false;
-
     if (localStorage.getItem("focusText") === null) {
         isLocalStorageAvailable = true;
-    } else {
-        isLocalStorageAvailable = false;
     }
-    Boolean(isLocalStorageAvailable);
+    return isLocalStorageAvailable;
 }
 
 function getTime() {
-    var ampm;
     var systemDate = new Date();
     var hours = systemDate.getHours();
     var minutes = systemDate.getMinutes();
-    ampm = hours >= 12 ? "pm" : "am";
-    hours = hours % 12;
-    if (hours == 0) {
-        hours = 12;
-    }
+    var ampm = hours >= 12 ? "pm" : "am";
+    var twelve = hours % 12;
+    hours = twelve == 0 ? 12 : twelve;
     _hours = checkTimeAddZero(hours);
     _minutes = checkTimeAddZero(minutes);
     //Only update if time is changed, this will prevent unnecessary re-render
@@ -139,28 +128,27 @@ function showGreetingMessage(hours) {
     }
 
     if (hours >= 4 && hours <= 11) {
-        textNode.innerText = "Good morning";
+        textNode.innerText = "Good morning!";
     }
 
     if (hours >= 12 && hours <= 16) {
-        textNode.innerText = "Good aftenoon";
+        textNode.innerText = "Good aftenoon!";
     }
 
     if (hours >= 17 && hours <= 21) {
-        textNode.textContent = "Good evening";
+        textNode.textContent = "Good evening!";
     }
 
-    if (hours >= 22 && hours <= 00) {
-        textNode.textContent = "You can do it.";
+    if (hours >= 22 && hours <= 0) {
+        textNode.textContent = "You can do it!";
     }
 }
 
 function inputFocusText() {
     var inputFocusText = document.getElementById("input-focus");
     inputFocusText.value = localStorage.getItem("focusToday");
-    console.log(document.getElementsByTagName("p").innerText);
-    inputFocusText.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
+    inputFocusText.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
             document.getElementsByTagName("p").innerHTML = localStorage.getItem(
                 "focusToday"
@@ -180,14 +168,6 @@ function editFocusText() {
 
 function getQuotes() {
     $.getJSON("https://api.quotable.io/random", function (a) {
-        $("#quotes").append(
-            "<h4 style='font-size:150%'>" +
-            a.content +
-            "</h4>" +
-            "<h5>" +
-            a.author +
-            "</h5>"
-        );
-        //localStorage.setItem("quote", a.content + "\n" + a.author style="font-size: 550%");
+        $("#quotes").append(`<h4 style='font-size:150%'>${a.content}</h4><h5>${a.author}</h5>`)
     });
 }
