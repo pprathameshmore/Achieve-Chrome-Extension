@@ -45,18 +45,17 @@ function removeOldImage() {
 }
 
 function unsplashGetPhotos() {
-  $.getJSON(
-    "https://api.unsplash.com/photos/random?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe",
-    function(data) {
-      //console.log(data.urls);
-      $.each(data, function(index, value) {
-        localStorage.setItem("url", data.urls.full);
-        localStorage.setItem("name", data.user.name);
-        localStorage.setItem("link", data.links.html);
-      });
-      fetchImage();
-    }
-  );
+    $.getJSON("https://api.unsplash.com/photos/random?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe", function (data) {
+        //console.log(data.urls);
+        $.each(data, function (index, value) {
+            localStorage.setItem("url", data.urls.full);
+            localStorage.setItem("name", data.user.name);
+            localStorage.setItem("link", data.links.html);
+        });
+        fetchImage();
+    }).fail(function() {
+        alert('Woops Rate Limit Exceeded'); // or whatever
+    });
 }
 
 function setFocusText() {
