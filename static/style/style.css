@@ -71,6 +71,14 @@ body {
     color: white !important;
 }
 
+.onyourmind { 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.onyourmind .form-control { padding: 10px; }
+
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white !important;
