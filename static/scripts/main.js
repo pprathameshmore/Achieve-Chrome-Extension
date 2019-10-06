@@ -151,9 +151,13 @@ function inputFocusText() {
     inputFocusText.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
-            document.getElementsByTagName("p").innerHTML = localStorage.getItem(
-                "focusToday"
-            );
+            if (localStorage.getItem("focusToday") === "") {
+                document.getElementsByClassName("form").style.display = "block";
+            } else {
+                document.getElementsByTagName("p").innerHTML = localStorage.getItem(
+                    "focusToday"
+                );
+            }
             window.location.reload(true);
         }
     });
