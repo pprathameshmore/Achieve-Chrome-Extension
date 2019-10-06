@@ -28,7 +28,7 @@ function fetchImage() {
     };
 
     if (localStorage.getItem("url") === null) {
-        backgroundImg.src = "/static/images/background.jpg";
+        backgroundImg.src = "https://pprathameshmore.github.io/data/background/background.jpg";
     } else {
         backgroundImg.src = localStorage.getItem("url");
         $("#credit").html(`<a target="_blank">${localStorage.getItem("name")}</a>`);
@@ -151,13 +151,9 @@ function inputFocusText() {
     inputFocusText.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             localStorage.setItem("focusToday", inputFocusText.value);
-            if (localStorage.getItem("focusToday") === "") {
-                document.getElementsByClassName("form").style.display = "block";
-            } else {
-                document.getElementsByTagName("p").innerHTML = localStorage.getItem(
-                    "focusToday"
-                );
-            }
+            document.getElementsByTagName("p").innerHTML = localStorage.getItem(
+                "focusToday"
+            );
             window.location.reload(true);
         }
     });
