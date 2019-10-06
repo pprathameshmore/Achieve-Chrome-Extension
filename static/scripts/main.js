@@ -1,6 +1,6 @@
-window.onload = function () {
-    init();
-}
+window.onload = function() {
+  init();
+};
 
 const clientID = '3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe';
 const changeBtn = document.getElementById('change-btn');
@@ -88,6 +88,8 @@ function getTime() {
         timeInDOMElement.innerHTML = timeString;
     }
 }
+// getTime() will be called in every 1 second of interval
+setInterval(getTime, 1000);
 
 //Function add zero
 function checkTimeAddZero(i) {
@@ -98,7 +100,7 @@ function checkTimeAddZero(i) {
 }
 
 function showGreetingMessage(hours) {
-
+  var textNode = document.getElementById("greeting-message");
     const textNode = document.getElementById('greeting-message');
 
     if (hours >= 0 && hours <= 3) {
@@ -143,7 +145,6 @@ function editFocusText() {
         this.style.display = 'none';
     }
 }
-
 
 function getQuotes() {
     const quotes = document.getElementById('quotes');
