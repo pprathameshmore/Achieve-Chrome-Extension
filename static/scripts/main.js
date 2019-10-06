@@ -31,6 +31,7 @@ function fetchImage() {
         backgroundImg.src = "/static/images/background.jpg";
     } else {
         backgroundImg.src = localStorage.getItem("url");
+        $("#credit").html(`<a target="_blank">${localStorage.getItem("name")}</a>`);
         $("#navigate").html(`<a target="_blank"  style="color : white; font-size:130%;" href="
             ${localStorage.getItem("link")}">See on Unsplash</a>`);
     }
