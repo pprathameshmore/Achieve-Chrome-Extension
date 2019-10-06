@@ -100,27 +100,26 @@ function checkTimeAddZero(i) {
 }
 
 function showGreetingMessage(hours) {
-  var textNode = document.getElementById("greeting-message");
-    const textNode = document.getElementById('greeting-message');
+    const text = document.getElementById('greeting-message');
 
     if (hours >= 0 && hours <= 3) {
-        textNode.innerText = 'Hello Ninja!';
+        text.innerText = 'Hello Ninja!';
     }
 
     if (hours >= 4 && hours <= 11) {
-        textNode.innerText = 'Good morning';
+        text.innerText = 'Good morning';
     }
 
     if (hours >= 12 && hours <= 16) {
-        textNode.innerText = 'Good aftenoon';
+        text.innerText = 'Good aftenoon';
     }
 
     if (hours >= 17 && hours <= 21) {
-        textNode.textContent = 'Good evening';
+        text.textContent = 'Good evening';
     }
 
     if (hours >= 22 && hours <= 00) {
-        textNode.textContent = 'You can do it.';
+        text.textContent = 'You can do it.';
     }
 }
 
