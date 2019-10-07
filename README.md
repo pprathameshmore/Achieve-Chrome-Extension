@@ -55,7 +55,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors:
-- @pprathameshmore
+- pprathameshmore [user profile](https://github.com/pprathameshmore)
 - @ddazal
 - @Ventrosky
 - @rowhitswami
