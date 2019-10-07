@@ -55,13 +55,13 @@ OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors:
-- pprathameshmore [user profile](https://github.com/pprathameshmore)
-- @ddazal
-- @Ventrosky
-- @rowhitswami
-- @Tilak999
-- @ManuelOviedo
-- @yordanzhelevdev
-- @thedeany
-- @rokibulislaam
-- @alejandrotoga02
+- [pprathameshmore](https://github.com/pprathameshmore)
+- [ddazal](https://github.com/ddazal)
+- [Ventrosky](https://github.com/Ventrosky)
+- [rowhitswami](https://github.com/rowhitswami)
+- [Tilak999](https://github.com/Tilak999)
+- [ManuelOviedo](https://github.com/ManuelOviedo)
+- [yordanzhelevdev](https://github.com/yordanzhelevdev)
+- [thedeany](https://github.com/thedeany)
+- [rokibulislaam](https://github.com/rokibulislaam)
+- [alejandrotoga02](https://github.com/alejandrotoga02)
