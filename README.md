@@ -25,6 +25,19 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 2. Visual Studio Code
 3. jQuery
 
+## Contributors:
+- [pprathameshmore](https://github.com/pprathameshmore)
+- [ddazal](https://github.com/ddazal)
+- [Ventrosky](https://github.com/Ventrosky)
+- [rowhitswami](https://github.com/rowhitswami)
+- [Tilak999](https://github.com/Tilak999)
+- [ManuelOviedo](https://github.com/ManuelOviedo)
+- [yordanzhelevdev](https://github.com/yordanzhelevdev)
+- [thedeany](https://github.com/thedeany)
+- [rokibulislaam](https://github.com/rokibulislaam)
+- [alejandrotoga02](https://github.com/alejandrotoga02)
+- [petr7555](https://github.com/petr7555)
+
 ## License
 ```
 The MIT License (MIT)
@@ -53,15 +66,3 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-## Contributors:
-- [pprathameshmore](https://github.com/pprathameshmore)
-- [ddazal](https://github.com/ddazal)
-- [Ventrosky](https://github.com/Ventrosky)
-- [rowhitswami](https://github.com/rowhitswami)
-- [Tilak999](https://github.com/Tilak999)
-- [ManuelOviedo](https://github.com/ManuelOviedo)
-- [yordanzhelevdev](https://github.com/yordanzhelevdev)
-- [thedeany](https://github.com/thedeany)
-- [rokibulislaam](https://github.com/rokibulislaam)
-- [alejandrotoga02](https://github.com/alejandrotoga02)
