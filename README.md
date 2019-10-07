@@ -1,12 +1,13 @@
 ![](static/icons/icons64.png)
 # Achieve - Chrome Extension 
 
-## Achieve is Chrome Extension. It delivers daily motivational quotes and beautiful images! That motivates you to do work!
-![](https://img.shields.io/github/license/pprathameshmore/Achieve-Chrome-Extension)
-![](https://img.shields.io/github/forks/pprathameshmore/Achieve-Chrome-Extension)
-![](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension)
-![](https://img.shields.io/twitter/url/https/github.com/pprathameshmore/Achieve-Chrome-Extension?style=social)
-# Screenshot
+### Achieve is a New Tab Chrome Extension. It delivers daily motivational quotes with beautiful images! That will surely motivate you to work!
+[![License](https://img.shields.io/github/license/pprathameshmore/Achieve-Chrome-Extension)](LICENSE)
+![forks](https://img.shields.io/github/forks/pprathameshmore/Achieve-Chrome-Extension)
+![stars](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension)
+[![twitter](https://img.shields.io/twitter/url/https/github.com/pprathameshmore/Achieve-Chrome-Extension?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fpprathameshmore%2FAchieve-Chrome-Extension)
+
+# Screenshots
 <img src="screenshots.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
@@ -15,13 +16,14 @@
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
-### It uses Unsplash API for images (https://github.com/unsplash/unsplash-js)
-### For Quotes (https://github.com/pprathameshmore/QuoteGarden)
+## Dependencies
+For Background Images [Unsplash API](https://github.com/unsplash/unsplash-js)<br>
+For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 
 ## Programming languages and Tools
 1. Vanilla JavaScript
 2. Visual Studio Code
-3. jQuery  
+3. jQuery
 
 ## License
 ```
