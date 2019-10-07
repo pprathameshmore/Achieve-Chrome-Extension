@@ -25,6 +25,13 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 2. Visual Studio Code
 3. jQuery
 
+## Contributors
+| Name             |  Contributions          | Where to find you<br><sup>(add all links to your profiles eg on twitter, linkedlin...)</sup>|---------------------------------|
+| [Prathamesh More](https://github.com/pprathameshmore)<br> <img src="https://avatars2.githubusercontent.com/u/17108186?s=460&v=4" width="100" height="100">|   Owner
+
+| [Tilak Sasmal](https://github.com/Tilak999)<br> <img src="https://avatars3.githubusercontent.com/u/21053902?s=400&v=4" width="100" height="100">| Updated README to be more clear|
+
+
 ## License
 ```
 The MIT License (MIT)
