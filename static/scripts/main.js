@@ -20,18 +20,22 @@ $("#change-btn").on('click', function () {
 });
 
 function fetchImage() {
+    var backgroundImg = new Image;
+    $(".background-container").css("opacity",0)
+    backgroundImg.onload = function() {
+        $(".background-container").css("background-image", "url(" + this.src + ")");
+        $(".background-container").css("opacity",1)
+        $(".main-container").css("opacity",1)
+    }
+
     if (localStorage.getItem("url") === null) {
-        var path = "/static/images/background.jpg";
-        $("body").css("background-image", "url(" + path + ")");
-        $("#credit").html("");
-        $("#credit").append( '<h5 class="display-4">' + Unslpash + '</h5>');
+        backgroundImg.src = "/static/images/background.jpg";
+        $("#credit").html( '<h5 class="display-4">See on Unsplash</h5>');
     } else {
-        $("body").css("background-image", "url(" + localStorage.getItem("url") + ")");
-        $("#credit").html("");
-        $("#credit").append( '<h5 class="display-4">' + localStorage.getItem("name") + ' on Unsplash</h5>');
-        var obj = localStorage.getItem("link");
-        $("#navigate").html("");
-        $("#navigate").append( '<a target="_blank"  style="color : white" href=' + obj + '>'  + ' See on Unsplash</a>');
+        backgroundImg.src = localStorage.getItem("url");
+        $("#credit").html(localStorage.getItem("name"));
+        $("#navigate").html('<a target="_blank"  style="color : white" href=' + 
+            localStorage.getItem("link") + '>See on Unsplash</a>');
     }
 }
 
@@ -50,7 +54,6 @@ function unsplashGetPhotos() {
         fetchImage();
     });
 }
-
 
 
 function setFocusText() {
@@ -110,7 +113,12 @@ function getTime() {
     }
     _hours = checkTimeAddZero(hours);
     _minutes = checkTimeAddZero(minutes);
-    document.getElementById('current-time').innerHTML = _hours + ":" + _minutes;
+    //Only update if time is changed, this will prevent unnecessary re-render
+    var timeInDOM = document.getElementById('current-time').innerHTML;
+    var timeString = _hours + ":" + _minutes;
+    if(timeInDOM !== timeString) {
+        document.getElementById('current-time').innerHTML = timeString;
+    }
     setInterval(getTime, 1000);
 }
 
@@ -125,6 +133,10 @@ function checkTimeAddZero(i) {
 function showGreetingMessage(hours) {
 
     var textNode = document.getElementById('greeting-message');
+
+    if(hours >= 0 && hours <=3){
+        textNode.innerText = "Hello Ninja!";
+    }
 
     if (hours >= 4 && hours <= 11) {
         textNode.innerText = "Good morning";
