@@ -5,45 +5,32 @@ html {
 body {
     background-color: black !important;
     width: 100%;
-    height: 100%;
+    color: white !important;
 }
 
-.background-container {
-    position: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Roboto Slab', serif;
-    height: auto;
-    width: 100%;
-    background-position: center;
-    opacity: 0;
-    -webkit-transition: opacity 1.5s;
-}
-
-
-.main-container {
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    text-shadow: #191919 2px 2px 30px;
-    opacity: 0;
-    -webkit-transition: opacity 2s;
-}
 
 .time {
     margin-top: 50px;
-    font-size: 700%;
+    font-size: 500%;
 }
 
+
 .message {
-    font-size: 300%;
+    font-size: 350%;
     margin-bottom: 20px;
+}
+
+#label-focus {
+    font-size: 30px !important;
+}
+
+p {
+    font-size: 25px !important;
+}
+
+input[type="text"]
+{
+    font-size:25px !important;
 }
 
 #quotes {
@@ -59,19 +46,23 @@ body {
     font-size: 20px;
 }
 
-#credit, #navigate, #credit > h5 {
+#credit{
+    margin-top: 30px;
+    }
+
+#navigate, #credit > h5 {
     font-size: 14px !important;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 
 #change-btn {
-    cursor: pointer; 
+    cursor: pointer;
     margin: auto;
-    width:0px;
-    height:0px;
-    background:url('/static/images/refresh.png');
-    padding:15px;
+    width: 0px;
+    height: 0px;
+    background: url("/static/images/refresh.png");
+    padding: 15px;
     margin-top: 20px;
 }
 
@@ -80,11 +71,12 @@ body {
 }
 
 .form-control {
-background-color: transparent !important;
-color: white !important;
-border: none !important;
-border-bottom: 2px solid white !important;
 
+    background-image: linear-gradient(0deg,white 2px,rgba(0,150,136,0) 0),linear-gradient(0deg,rgba(0,0,0,.26) 1px,transparent 0) !important;
+    background-color: transparent !important;
+    color: white !important;
+    border: none !important;
+    font-size: 
 }
 
 input:focus {
@@ -94,4 +86,20 @@ input:focus {
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white !important;
   opacity: 1 !important; /* Firefox */
+    background: url("/static/images/refresh_gray.png");
+}
+
+
+.onyourmind { 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+    opacity: 1 !important;
+    font-size: 100% !important;
+    /* Firefox */
 }

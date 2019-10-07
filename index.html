@@ -6,38 +6,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="static/style/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="static/style/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style/style.css">
+    <link rel="stylesheet" href="/static/style/bootstrap-material-design.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="background-container"></div>
-    <div class="container-fluid">
-        <div class="main-container text-center" style="color: white">
+    <div class="container">
+        <div class="main-container text-center">
             <div class="time" id="current-time"></div>
             <div class="message" id="greeting-message"></div>
             <div class="todo" id="todo-container">
-                <h3 id="label-focus" style="font-size: 210%">What is your main focus for today?</h3>
-                <div class="form row center">
-                    <div class="col-md-6 offset-md-3">
-                    <input class="form-control" id="input-focus" type="text" placeholder="What's in your mind?">
+                <h3 id="label-focus">What is your main focus for today?</h3>
+                <div class="form onyourmind">
+                    <input class="form-control" id="input-focus" type="text"
+                        placeholder="What's in your mind?">
                 </div>
                 </div>
+                <div id="quotes"></div>
+                <br>
+                <div>
+                    <h6>Photo by : <span id="credit"></span></h6>
+                </div>
+                <div id="navigate"></div>
+                <div id="change-btn" title="Change background image"></div> <div id="location"></div>
             </div>
-            <div id="quotes"></div>
-            <br>
-
-            <div>
-                <h5 class="display-4">Photo by : <span id="credit"></span></h5>
-            </div>
-            <div id="navigate"></div>
-            <div id="change-btn"></div>
-            <div id="location"></div>
         </div>
     </div>
-    
+
 </body>
 <script src="/static/scripts/jquery-3.4.1.js"></script>
 <script src="/static/scripts/bootstrap.min.js"></script>
