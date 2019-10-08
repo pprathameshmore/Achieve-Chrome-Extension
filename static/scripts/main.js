@@ -2,8 +2,11 @@ window.onload = function () {
     init();
 };
 
-var clientID =
+const clientID =
     "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
+
+const apiImageURL = 'https://api.unsplash.com/photos/random' + clientID;
+const apiQuote = "https://api.quotable.io/random";
 
 function init() {
     getTime();
@@ -28,7 +31,7 @@ function fetchImage() {
     };
 
     if (localStorage.getItem("url") === null) {
-        backgroundImg.src = "https://pprathameshmore.github.io/data/background/background.jpg";
+        backgroundImg.src = "/static/images/background.jpg";
     } else {
         backgroundImg.src = localStorage.getItem("url");
         $("#credit").html(`<a target="_blank">${localStorage.getItem("name")}</a>`);
@@ -37,21 +40,13 @@ function fetchImage() {
     }
 }
 
-function removeOldImage() {
-    localStorage.removeItem("url");
-}
-
-function unsplashGetPhotos() {
-    $.getJSON(`https://api.unsplash.com/photos/random${clientID}`, function (data) {
-        $.each(data, function (index, value) {
-            localStorage.setItem("url", data.urls.full);
-            localStorage.setItem("name", data.user.name);
-            localStorage.setItem("link", data.links.html);
-        });
-        fetchImage();
-    }).fail(function () {
-        alert('Woops Rate Limit Exceeded'); // or whatever
-    });
+async function unsplashGetPhotos() {
+    const response = await fetch(apiImageURL);
+    const data = await response.json();
+    localStorage.setItem("url", data.urls.full);
+    localStorage.setItem("name", data.user.name);
+    localStorage.setItem("link", data.links.html);
+    fetchImage();
 }
 
 function setFocusText() {
@@ -167,8 +162,20 @@ function editFocusText() {
     });
 }
 
-function getQuotes() {
-    $.getJSON("https://api.quotable.io/random", function (a) {
-        $("#quotes").append(`<h4 style='font-size:150%'>${a.content}</h4><h5>${a.author}</h5>`)
-    });
+async function getQuotes() {
+
+    const response = await fetch(apiQuote);
+    const quote = await response.json(response);
+    var quoteText = document.getElementById("quotes");
+    var p = document.createElement("p");
+    var textContent = document.createElement("h2");
+    var textAuthor = document.createElement("h4");
+    var author = document.createTextNode(quote.author);
+    var content = document.createTextNode(quote.content);
+    textContent.appendChild(content);
+    textAuthor.appendChild(author);
+    p.appendChild(textContent);
+    p.appendChild(textAuthor);
+    quoteText.appendChild(p);
+
 }

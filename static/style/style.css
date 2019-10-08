@@ -72,13 +72,13 @@ body {
     color: white !important;
 }
 
-.onyourmind { 
+.input-text { 
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.onyourmind .form-control { padding: 10px; }
+.input-text .form-control { padding: 10px; }
 
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
