@@ -8,7 +8,13 @@ const mainContainer = document.querySelector(".main-container");
 const credit = document.querySelector("#credit");
 const navigate = document.querySelector("#navigate");
 const quotes = document.querySelector('#quotes');
-const focusText = null;
+const todoContainer = document.querySelector("#todo-container");
+const focusInput = document.querySelector("#input-focus");
+let focusText = null;
+const defaultText = "Click Here To Add.";
+
+// DOM defaults
+focusInput.style.display = "none";
 
 // functions
 function fetchImage() {
@@ -49,36 +55,24 @@ function unsplashGetPhotos() {
         })
 }
 
-function setFocusText() {
-    inputFocusText();
-    var getFocusText = localStorage.getItem("focusToday");
-    if (getFocusText != null) {
-        var p = document.createElement("p");
-        var textNode = document.createTextNode(getFocusText);
-        p.appendChild(textNode);
-        var todoContainer = document.getElementById("todo-container");
-        todoContainer.appendChild(p);
-        var inputFocus = document.getElementById("input-focus");
-        if (checkLocalStorageForFocus) {
-            inputFocus.style.display = "none";
-        } else {
-            inputFocus.style.display = "block";
-            p.style.setProperty("style", "font-size: 150%");
-        }
+function checkLocalStorageForFocusText() {
+    if (localStorage.getItem("focusText") === null) {
+        setFocusText(defaultText);
     } else {
-        var default_text = "Click here to add";
-        var p = document.createElement("p");
-        var textNode = document.createTextNode(default_text);
-        p.appendChild(textNode);
-        var todoContainer = document.getElementById("todo-container");
-        todoContainer.appendChild(p);
-        var inputFocus = document.getElementById("input-focus");
-        if (checkLocalStorageForFocus) {
-            inputFocus.style.display = "none";
-        } else {
-            inputFocus.style.display = "block";
-        }
+        focusText = localStorage.getItem("focusText");
+        setFocusText(focusText);
     }
+}
+
+function setFocusText(str) {
+    const focusLabel = document.createElement("p");
+    const focusLabelText = document.createTextNode(str);
+    focusLabel.appendChild(focusLabelText);
+    focusLabel.addEventListener("click", () => {
+        editFocusText();
+    })
+
+    todoContainer.appendChild(focusLabel);
 }
 
 function checkLocalStorageForFocus() {
@@ -141,31 +135,29 @@ function showGreetingMessage(hours) {
 }
 
 function inputFocusText() {
-    var inputFocusText = document.getElementById("input-focus");
-    inputFocusText.value = localStorage.getItem("focusToday");
-    inputFocusText.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            localStorage.setItem("focusToday", inputFocusText.value);
-            document.getElementsByTagName("p").innerHTML = localStorage.getItem(
-                "focusToday"
-            );
+
+    focusText !== null ? focusInput.value = localStorage.getItem("focusText") : null;
+    focusInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            localStorage.setItem("focusText", focusInput.value);
+            focusText = localStorage.getItem("focusText");
             window.location.reload(true);
         }
     });
 }
 
 function editFocusText() {
-    $("p").click(function () {
-        document.getElementById("input-focus").style.display = "block";
-        inputFocusText();
-        this.style.display = "none";
-    });
+    event.currentTarget.style.display = "none";
+    focusInput.style.display = "block";
+    inputFocusText();
 }
 
 function getQuotes() {
-    $.getJSON("https://api.quotable.io/random", function (a) {
-        $("#quotes").append(`<h4 style='font-size:150%'>${a.content}</h4><h5>${a.author}</h5>`)
-    });
+    fetch("https://api.quotable.io/random")
+        .then(res => res.json())
+        .then(data => {
+            quotes.innerHTML = `<h4 style='font-size:150%'>${data.content}</h4><h5>${data.author}</h5>`;
+        })
 }
 
 // event listeners and timers
@@ -175,9 +167,10 @@ changeBtn.addEventListener("click", () => {
 
 // initialize script
 function init() {
+    checkLocalStorageForFocusText();
     getTime();
-    setFocusText();
-    editFocusText();
+    // setFocusText();
+    // editFocusText();
     showGreetingMessage(new Date().getHours());
     getQuotes();
     fetchImage();
