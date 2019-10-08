@@ -1,84 +1,78 @@
-window.onload = function () {
-    init();
-};
+// unsplash api key
+const clientID = "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
 
-const clientID =
-    "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
+// DOM Elements
+const changeBtn = document.querySelector("#change-btn");
+const backgroundImgContainer = document.querySelector(".background-container");
+const mainContainer = document.querySelector(".main-container");
+const credit = document.querySelector("#credit");
+const navigate = document.querySelector("#navigate");
+const quotes = document.querySelector('#quotes');
+const todoContainer = document.querySelector("#todo-container");
+const focusInput = document.querySelector("#input-focus");
+let focusText = null;
+const defaultText = "Click Here To Add.";
 
-const apiImageURL = 'https://api.unsplash.com/photos/random' + clientID;
-const apiQuote = "https://api.quotable.io/random";
+// DOM defaults
+focusInput.style.display = "none";
 
-function init() {
-    getTime();
-    setFocusText();
-    editFocusText();
-    showGreetingMessage(new Date().getHours());
-    getQuotes();
-    fetchImage();
-}
-
-$("#change-btn").on("click", function () {
-    unsplashGetPhotos();
-});
-
+// functions
 function fetchImage() {
-    var backgroundImg = new Image();
-    $(".background-container").css("opacity", 0);
-    backgroundImg.onload = function () {
-        $(".background-container").css("background-image", "url(" + this.src + ")");
-        $(".background-container").css("opacity", 1);
-        $(".main-container").css("opacity", 1);
+    const img = new Image();
+    backgroundImgContainer.style.opacity = 0;
+    img.onload = function () {
+        backgroundImgContainer.style.backgroundImage = `url(${this.src})`;
+        backgroundImgContainer.style.opacity = 1;
+        mainContainer.style.opacity = 1;
     };
 
     if (localStorage.getItem("url") === null) {
-        backgroundImg.src = "/static/images/background.jpg";
+        img.src = "https://pprathameshmore.github.io/data/background/background.jpg";
     } else {
-        backgroundImg.src = localStorage.getItem("url");
-        $("#credit").html(`<a target="_blank">${localStorage.getItem("name")}</a>`);
-        $("#navigate").html(`<a target="_blank"  style="color : white; font-size:130%;" href="
-            ${localStorage.getItem("link")}">See on Unsplash</a>`);
+        img.src = localStorage.getItem("url");
+        credit.innerHTML = `<a target="_blank">${localStorage.getItem("name")}</a>`;
+        navigate.innerHTML = `<a target="_blank"  style="color : white; font-size:130%;" href="${localStorage.getItem("link")}">See on Unsplash</a>`;
     }
 }
 
-async function unsplashGetPhotos() {
-    const response = await fetch(apiImageURL);
-    const data = await response.json();
-    localStorage.setItem("url", data.urls.full);
-    localStorage.setItem("name", data.user.name);
-    localStorage.setItem("link", data.links.html);
-    fetchImage();
+function removeOldImage() {
+    localStorage.removeItem("url");
 }
 
-function setFocusText() {
-    inputFocusText();
-    var getFocusText = localStorage.getItem("focusToday");
-    if (getFocusText != null) {
-        var p = document.createElement("p");
-        var textNode = document.createTextNode(getFocusText);
-        p.appendChild(textNode);
-        var todoContainer = document.getElementById("todo-container");
-        todoContainer.appendChild(p);
-        var inputFocus = document.getElementById("input-focus");
-        if (checkLocalStorageForFocus) {
-            inputFocus.style.display = "none";
-        } else {
-            inputFocus.style.display = "block";
-            p.style.setProperty("style", "font-size: 150%");
-        }
+function unsplashGetPhotos() {
+    fetch(`https://api.unsplash.com/photos/random${clientID}`)
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem("url", data.urls.full);
+            localStorage.setItem("name", data.user.name);
+            localStorage.setItem("link", data.links.html);
+        })
+        .then(() => {
+            fetchImage();
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+}
+
+function checkLocalStorageForFocusText() {
+    if (localStorage.getItem("focusText") === null) {
+        setFocusText(defaultText);
     } else {
-        var default_text = "Click here to add";
-        var p = document.createElement("p");
-        var textNode = document.createTextNode(default_text);
-        p.appendChild(textNode);
-        var todoContainer = document.getElementById("todo-container");
-        todoContainer.appendChild(p);
-        var inputFocus = document.getElementById("input-focus");
-        if (checkLocalStorageForFocus) {
-            inputFocus.style.display = "none";
-        } else {
-            inputFocus.style.display = "block";
-        }
+        focusText = localStorage.getItem("focusText");
+        setFocusText(focusText);
     }
+}
+
+function setFocusText(str) {
+    const focusLabel = document.createElement("p");
+    const focusLabelText = document.createTextNode(str);
+    focusLabel.appendChild(focusLabelText);
+    focusLabel.addEventListener("click", () => {
+        editFocusText();
+    })
+
+    todoContainer.appendChild(focusLabel);
 }
 
 function checkLocalStorageForFocus() {
@@ -141,41 +135,45 @@ function showGreetingMessage(hours) {
 }
 
 function inputFocusText() {
-    var inputFocusText = document.getElementById("input-focus");
-    inputFocusText.value = localStorage.getItem("focusToday");
-    inputFocusText.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            localStorage.setItem("focusToday", inputFocusText.value);
-            document.getElementsByTagName("p").innerHTML = localStorage.getItem(
-                "focusToday"
-            );
+
+    focusText !== null ? focusInput.value = localStorage.getItem("focusText") : null;
+    focusInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            localStorage.setItem("focusText", focusInput.value);
+            focusText = localStorage.getItem("focusText");
             window.location.reload(true);
         }
     });
 }
 
 function editFocusText() {
-    $("p").click(function () {
-        document.getElementById("input-focus").style.display = "block";
-        inputFocusText();
-        this.style.display = "none";
-    });
+    event.currentTarget.style.display = "none";
+    focusInput.style.display = "block";
+    inputFocusText();
 }
 
-async function getQuotes() {
-
-    const response = await fetch(apiQuote);
-    const quote = await response.json(response);
-    var quoteText = document.getElementById("quotes");
-    var p = document.createElement("p");
-    var textContent = document.createElement("h2");
-    var textAuthor = document.createElement("h4");
-    var author = document.createTextNode(quote.author);
-    var content = document.createTextNode(quote.content);
-    textContent.appendChild(content);
-    textAuthor.appendChild(author);
-    p.appendChild(textContent);
-    p.appendChild(textAuthor);
-    quoteText.appendChild(p);
-
+function getQuotes() {
+    fetch("https://api.quotable.io/random")
+        .then(res => res.json())
+        .then(data => {
+            quotes.innerHTML = `<h4 style='font-size:150%'>${data.content}</h4><h5>${data.author}</h5>`;
+        })
 }
+
+// event listeners and timers
+changeBtn.addEventListener("click", () => {
+    unsplashGetPhotos();
+});
+
+// initialize script
+function init() {
+    checkLocalStorageForFocusText();
+    getTime();
+    showGreetingMessage(new Date().getHours());
+    getQuotes();
+    fetchImage();
+}
+
+window.onload = function () {
+    init();
+};
