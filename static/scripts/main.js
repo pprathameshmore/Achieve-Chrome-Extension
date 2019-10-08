@@ -169,8 +169,6 @@ changeBtn.addEventListener("click", () => {
 function init() {
     checkLocalStorageForFocusText();
     getTime();
-    // setFocusText();
-    // editFocusText();
     showGreetingMessage(new Date().getHours());
     getQuotes();
     fetchImage();

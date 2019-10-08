@@ -1,7 +1,3 @@
-html {
-    height: 100%;
-}
-
 body {
     background-color: black !important;
     width: 100%;
@@ -22,14 +18,16 @@ body {
 }
 
 .main-container {
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    padding: 7% 0;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
     text-shadow: #191919 2px 2px 30px;
     opacity: 0;
@@ -39,15 +37,19 @@ body {
 
 .time {
     font-size: 1500%;
+    line-height: 1;
+}
+
+.todo {
+    flex: 1;
 }
 
 .message {
+    flex: 1;
     font-size: 500%;
-    margin-bottom: 40px;
 }
 
 #quotes {
-    margin-top: 6%;
     font-size: 120%;
 }
 
@@ -58,7 +60,6 @@ body {
     height: 0px;
     background: url("/static/images/refresh.png");
     padding: 15px;
-    margin-top: 20px;
 }
 
 #change-btn:hover {
@@ -71,13 +72,13 @@ body {
     color: white !important;
 }
 
-.onyourmind { 
+.input-text { 
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.onyourmind .form-control { padding: 10px; }
+.input-text .form-control { padding: 10px; }
 
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -85,10 +86,6 @@ body {
     opacity: 1 !important;
     font-size: 100% !important;
     /* Firefox */
-}
-
-.info {
-    margin-top: 200px;
 }
 
 #todo-container p {

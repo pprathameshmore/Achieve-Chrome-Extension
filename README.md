@@ -6,6 +6,7 @@
 ![forks](https://img.shields.io/github/forks/pprathameshmore/Achieve-Chrome-Extension)
 ![stars](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension)
 [![twitter](https://img.shields.io/twitter/url/https/github.com/pprathameshmore/Achieve-Chrome-Extension?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fpprathameshmore%2FAchieve-Chrome-Extension)
+[Youtube Demo](https://www.youtube.com/watch?v=lZZXsh_7trY)
 
 # Screenshots
 <img src="screenshots.png"
@@ -24,6 +25,32 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 1. Vanilla JavaScript
 2. Visual Studio Code
 3. jQuery
+
+## Getting Started
+
+### Clone the repository locally 
+1. Clone the repository to your machine : `git clone https://github.com/pprathameshmore/Achieve-Chrome-Extension.git`
+
+### Enable Extensions Developer Mode on Google Chrome
+1. Navigate to [chrome://extensions/](chrome://extensions/).
+2. Enable developer mode (Toggle button in right top corner).
+3. Select `Load Unpacked` and browse and select the cloned repository folder.
+4. Make sure that the extension is enabled.
+5. Open a new tab in Chrome and you should see a splash screen with motivational quotes.
+
+## Contributors:
+- [pprathameshmore](https://github.com/pprathameshmore)
+- [ddazal](https://github.com/ddazal)
+- [Ventrosky](https://github.com/Ventrosky)
+- [rowhitswami](https://github.com/rowhitswami)
+- [Tilak999](https://github.com/Tilak999)
+- [ManuelOviedo](https://github.com/ManuelOviedo)
+- [yordanzhelevdev](https://github.com/yordanzhelevdev)
+- [thedeany](https://github.com/thedeany)
+- [rokibulislaam](https://github.com/rokibulislaam)
+- [alejandrotoga02](https://github.com/alejandrotoga02)
+- [petr7555](https://github.com/petr7555)
+- [ploh007](https://github.com/ploh007)
 
 ## License
 ```
@@ -53,15 +80,3 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-## Contributors:
-- [pprathameshmore](https://github.com/pprathameshmore)
-- [ddazal](https://github.com/ddazal)
-- [Ventrosky](https://github.com/Ventrosky)
-- [rowhitswami](https://github.com/rowhitswami)
-- [Tilak999](https://github.com/Tilak999)
-- [ManuelOviedo](https://github.com/ManuelOviedo)
-- [yordanzhelevdev](https://github.com/yordanzhelevdev)
-- [thedeany](https://github.com/thedeany)
-- [rokibulislaam](https://github.com/rokibulislaam)
-- [alejandrotoga02](https://github.com/alejandrotoga02)
