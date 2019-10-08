@@ -1,39 +1,31 @@
-window.onload = function () {
-    init();
-};
+// unsplash api key
+const clientID = "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
 
-var clientID =
-    "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
+// DOM Elements
+const changeBtn = document.querySelector("#change-btn");
+const backgroundImgContainer = document.querySelector(".background-container");
+const mainContainer = document.querySelector(".main-container");
+const credit = document.querySelector("#credit");
+const navigate = document.querySelector("#navigate");
+const quotes = document.querySelector('#quotes');
+const focusText = null;
 
-function init() {
-    getTime();
-    setFocusText();
-    editFocusText();
-    showGreetingMessage(new Date().getHours());
-    getQuotes();
-    fetchImage();
-}
-
-$("#change-btn").on("click", function () {
-    unsplashGetPhotos();
-});
-
+// functions
 function fetchImage() {
-    var backgroundImg = new Image();
-    $(".background-container").css("opacity", 0);
-    backgroundImg.onload = function () {
-        $(".background-container").css("background-image", "url(" + this.src + ")");
-        $(".background-container").css("opacity", 1);
-        $(".main-container").css("opacity", 1);
+    const img = new Image();
+    backgroundImgContainer.style.opacity = 0;
+    img.onload = function () {
+        backgroundImgContainer.style.backgroundImage = `url(${this.src})`;
+        backgroundImgContainer.style.opacity = 1;
+        mainContainer.style.opacity = 1;
     };
 
     if (localStorage.getItem("url") === null) {
-        backgroundImg.src = "https://pprathameshmore.github.io/data/background/background.jpg";
+        img.src = "https://pprathameshmore.github.io/data/background/background.jpg";
     } else {
-        backgroundImg.src = localStorage.getItem("url");
-        $("#credit").html(`<a target="_blank">${localStorage.getItem("name")}</a>`);
-        $("#navigate").html(`<a target="_blank"  style="color : white; font-size:130%;" href="
-            ${localStorage.getItem("link")}">See on Unsplash</a>`);
+        img.src = localStorage.getItem("url");
+        credit.innerHTML = `<a target="_blank">${localStorage.getItem("name")}</a>`;
+        navigate.innerHTML = `<a target="_blank"  style="color : white; font-size:130%;" href="${localStorage.getItem("link")}">See on Unsplash</a>`;
     }
 }
 
@@ -42,16 +34,19 @@ function removeOldImage() {
 }
 
 function unsplashGetPhotos() {
-    $.getJSON(`https://api.unsplash.com/photos/random${clientID}`, function (data) {
-        $.each(data, function (index, value) {
+    fetch(`https://api.unsplash.com/photos/random${clientID}`)
+        .then(res => res.json())
+        .then(data => {
             localStorage.setItem("url", data.urls.full);
             localStorage.setItem("name", data.user.name);
             localStorage.setItem("link", data.links.html);
-        });
-        fetchImage();
-    }).fail(function () {
-        alert('Woops Rate Limit Exceeded'); // or whatever
-    });
+        })
+        .then(() => {
+            fetchImage();
+        })
+        .catch((err) => {
+            console.error(err);
+        })
 }
 
 function setFocusText() {
@@ -172,3 +167,22 @@ function getQuotes() {
         $("#quotes").append(`<h4 style='font-size:150%'>${a.content}</h4><h5>${a.author}</h5>`)
     });
 }
+
+// event listeners and timers
+changeBtn.addEventListener("click", () => {
+    unsplashGetPhotos();
+});
+
+// initialize script
+function init() {
+    getTime();
+    setFocusText();
+    editFocusText();
+    showGreetingMessage(new Date().getHours());
+    getQuotes();
+    fetchImage();
+}
+
+window.onload = function () {
+    init();
+};
