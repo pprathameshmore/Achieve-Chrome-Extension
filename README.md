@@ -26,6 +26,18 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 2. Visual Studio Code
 3. jQuery
 
+## Getting Started
+
+### Clone the repository locally 
+1. Clone the repository to your machine : `git clone https://github.com/pprathameshmore/Achieve-Chrome-Extension.git`
+
+### Enable Extensions Developer Mode on Google Chrome
+1. Navigate to [chrome://extensions/](chrome://extensions/).
+2. Enable developer mode (Toggle button in right top corner).
+3. Select `Load Unpacked` and browse and select the cloned repository folder.
+4. Make sure that the extension is enabled.
+5. Open a new tab in Chrome and you should see a splash screen with motivational quotes.
+
 ## Contributors:
 - [pprathameshmore](https://github.com/pprathameshmore)
 - [ddazal](https://github.com/ddazal)
@@ -38,6 +50,7 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 - [rokibulislaam](https://github.com/rokibulislaam)
 - [alejandrotoga02](https://github.com/alejandrotoga02)
 - [petr7555](https://github.com/petr7555)
+- [ploh007](https://github.com/ploh007)
 
 ## License
 ```
