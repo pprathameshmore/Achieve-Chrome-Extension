@@ -24,7 +24,6 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 ## Programming languages and Tools
 1. Vanilla JavaScript
 2. Visual Studio Code
-3. jQuery
 
 ## Getting Started
 
@@ -51,6 +50,9 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 - [alejandrotoga02](https://github.com/alejandrotoga02)
 - [petr7555](https://github.com/petr7555)
 - [ploh007](https://github.com/ploh007)
+- [joshuafbarker](https://github.com/joshuafbarker)
+- [geektutor](https://github.com/geektutor)
+- [kiyominox](https://github.com/kiyominox)
 
 ## License
 ```
