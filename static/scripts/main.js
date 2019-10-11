@@ -153,10 +153,10 @@ function editFocusText() {
 }
 
 function getQuotes() {
-    fetch("https://api.quotable.io/random")
+    fetch("https://quote-garden.herokuapp.com/quotes/random")
         .then(res => res.json())
         .then(data => {
-            quotes.innerHTML = `<h4 style='font-size:150%'>${data.content}</h4><h5>${data.author}</h5>`;
+            quotes.innerHTML = `<h4 style='font-size:150%'>${data.quoteText}</h4><h5>${data.quoteAuthor}</h5>`;
         })
 }
 
