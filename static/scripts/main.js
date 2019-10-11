@@ -2,23 +2,23 @@
 const clientID = "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
 
 // DOM Elements
-const changeBtn = document.querySelector("#change-btn");
-const backgroundImgContainer = document.querySelector(".background-container");
-const mainContainer = document.querySelector(".main-container");
-const credit = document.querySelector("#credit");
-const navigate = document.querySelector("#navigate");
-const quotes = document.querySelector('#quotes');
-const todoContainer = document.querySelector("#todo-container");
-const focusInput = document.querySelector("#input-focus");
+let changeBtn = document.querySelector("#change-btn");
+let backgroundImgContainer = document.querySelector(".background-container");
+let mainContainer = document.querySelector(".main-container");
+let credit = document.querySelector("#credit");
+let navigate = document.querySelector("#navigate");
+let quotes = document.querySelector('#quotes');
+let todoContainer = document.querySelector("#todo-container");
+let focusInput = document.querySelector("#input-focus");
 let focusText = null;
-const defaultText = "Click Here To Add.";
+let defaultText = "Click Here To Add.";
 
 // DOM defaults
 focusInput.style.display = "none";
 
 // functions
 function fetchImage() {
-    const img = new Image();
+    let img = new Image();
     backgroundImgContainer.style.opacity = 0;
     img.onload = function () {
         backgroundImgContainer.style.backgroundImage = `url(${this.src})`;
@@ -65,8 +65,8 @@ function checkLocalStorageForFocusText() {
 }
 
 function setFocusText(str) {
-    const focusLabel = document.createElement("p");
-    const focusLabelText = document.createTextNode(str);
+    let focusLabel = document.createElement("p");
+    let focusLabelText = document.createTextNode(str);
     focusLabel.appendChild(focusLabelText);
     focusLabel.addEventListener("click", () => {
         editFocusText();
