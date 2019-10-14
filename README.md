@@ -53,6 +53,8 @@ For Quotes [QuoteGarden](https://github.com/pprathameshmore/QuoteGarden)
 - [joshuafbarker](https://github.com/joshuafbarker)
 - [geektutor](https://github.com/geektutor)
 - [kiyominox](https://github.com/kiyominox)
+- [alejandrotoga02](https://github.com/alejandrotoga02)
+- [adityakmr7](https://github.com/adityakmr7)
 
 ## License
 ```
