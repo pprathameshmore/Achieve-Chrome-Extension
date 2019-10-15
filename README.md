@@ -3,9 +3,12 @@
 
 ### Achieve is a New Tab Chrome Extension. It delivers daily motivational quotes with beautiful images! That will surely motivate you to work!
 [![License](https://img.shields.io/github/license/pprathameshmore/Achieve-Chrome-Extension)](LICENSE)
-![forks](https://img.shields.io/github/forks/pprathameshmore/Achieve-Chrome-Extension)
-![stars](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension)
+![GitHub contributors](https://img.shields.io/github/contributors/pprathameshmore/Achieve-Chrome-Extension?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/pprathameshmore/Achieve-Chrome-Extension?style=plastic)
+![Maintenance](https://img.shields.io/maintenance/yes/2019?style=plastic)
 [![twitter](https://img.shields.io/twitter/url/https/github.com/pprathameshmore/Achieve-Chrome-Extension?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fpprathameshmore%2FAchieve-Chrome-Extension)
+![GitHub forks](https://img.shields.io/github/forks/pprathameshmore/Achieve-Chrome-Extension?style=social)
+![GitHub stars](https://img.shields.io/github/stars/pprathameshmore/Achieve-Chrome-Extension?style=social)
 [Youtube Demo](https://www.youtube.com/watch?v=lZZXsh_7trY)
 
 # Screenshots
