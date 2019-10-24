@@ -160,11 +160,6 @@ function getQuotes() {
         })
 }
 
-setInterval(() => {
-    unsplashGetPhotos();
-}, 180000);
-
-
 // event listeners and timers
 changeBtn.addEventListener("click", () => {
     unsplashGetPhotos();
