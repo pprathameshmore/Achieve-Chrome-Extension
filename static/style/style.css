@@ -13,8 +13,8 @@ body {
     width: 100%;
     background-position: center;
     opacity: 0;
-    -webkit-transition: opacity 1.5s;
-    transition: opacity 1.5s;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
 
 .main-container {
