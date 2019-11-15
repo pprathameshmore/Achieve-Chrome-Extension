@@ -31,8 +31,8 @@ body {
     text-align: center;
     text-shadow: #191919 2px 2px 30px;
     opacity: 0;
-    -webkit-transition: opacity 2s;
-    transition: opacity 2s;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
 
 .time {
