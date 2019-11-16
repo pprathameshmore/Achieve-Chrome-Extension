@@ -27,7 +27,7 @@ function fetchImage() {
     };
 
     if (localStorage.getItem("url") === null) {
-        img.src = "default.jpg";
+        img.src = "/static/style/default.jpg";
     } else {
         img.src = localStorage.getItem("url");
         credit.innerHTML = `<a target="_blank">${localStorage.getItem("name")}</a>`;
