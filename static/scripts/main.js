@@ -27,7 +27,7 @@ function fetchImage() {
     };
 
     if (localStorage.getItem("url") === null) {
-        img.src = "https://pprathameshmore.github.io/data/background/background.jpg";
+        img.src = "default.jpg";
     } else {
         img.src = localStorage.getItem("url");
         credit.innerHTML = `<a target="_blank">${localStorage.getItem("name")}</a>`;
