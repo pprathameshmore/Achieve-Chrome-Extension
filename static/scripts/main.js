@@ -17,6 +17,16 @@ const defaultText = "Click Here To Add.";
 // DOM defaults
 focusInput.style.display = "none";
 
+//Load top sites
+function topSites() {
+  chrome.topSites.get((topVisitedSites) => {
+    const url = document.getElementById("urls");
+    for (var i = 0; i < topVisitedSites.length; i++) {
+      url.innerHTML += topVisitedSites[i].url + "<br>";
+    }
+  });
+}
+
 // functions
 function fetchImage() {
   const img = new Image();
@@ -176,6 +186,7 @@ function init() {
   showGreetingMessage(new Date().getHours());
   getQuotes();
   fetchImage();
+  topSites();
 }
 
 window.onload = function () {
