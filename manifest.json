@@ -6,7 +6,7 @@
     "author": "Prathamesh More",
 
     "browser_action": {
-        "default_title": "What is your main focus for taday?",
+        "default_title": "What is your main focus for today?",
         "default_icon" : "static/icons/icons64.png",
         "default_popup" : "popup.html"
     },

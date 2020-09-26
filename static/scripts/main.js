@@ -1,6 +1,6 @@
 // unsplash api key
 const clientID =
-  "?client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
+  "&client_id=3ebe01369e49bd4796bdd7a4dc9d184e33817224260491c3ba8cd2066a75a5fe";
 
 // DOM Elements
 const changeBtn = document.querySelector("#change-btn");
@@ -12,7 +12,7 @@ const quotes = document.querySelector("#quotes");
 const todoContainer = document.querySelector("#todo-container");
 const focusInput = document.querySelector("#input-focus");
 let focusText = null;
-const defaultText = "Click Here To Add.";
+const defaultText = "Click here to add.";
 
 // DOM defaults
 focusInput.style.display = "none";
@@ -43,7 +43,9 @@ function removeOldImage() {
 }
 
 function unsplashGetPhotos() {
-  fetch(`https://api.unsplash.com/photos/random${clientID}`)
+  fetch(
+    `https://api.unsplash.com/photos/random?query=Nature&orientation=landscape&content_filter=high${clientID}`
+  )
     .then((res) => res.json())
     .then((data) => {
       localStorage.setItem("url", data.urls.full);
@@ -121,15 +123,15 @@ function showGreetingMessage(hours) {
   }
 
   if (hours >= 4 && hours <= 11) {
-    textNode.innerText = "Good morning!";
+    textNode.innerText = "Good morning";
   }
 
   if (hours >= 12 && hours <= 16) {
-    textNode.innerText = "Good aftenoon!";
+    textNode.innerText = "Good aftenoon";
   }
 
   if (hours >= 17 && hours <= 21) {
-    textNode.textContent = "Good evening!";
+    textNode.textContent = "Good evening";
   }
 
   if (hours >= 22 && hours <= 0) {
