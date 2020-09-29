@@ -17,6 +17,12 @@ body {
     transition: opacity 0.5s;
 }
 
+.head-container {
+    color: white;
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
 .main-container {
     position: relative;
     z-index: 5;

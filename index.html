@@ -16,6 +16,19 @@
 
   <body>
     <div class="background-container"></div>
+    <div class="head-container">
+      <div class="dropdown">
+        <a class="btn btn-lg dropdown" style="color: white;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          LINKS
+        </a>
+
+        <ul class="dropdown-menu animation slideDownIn">
+          <li><a class="dropdown-item" href="#">Chrome Tab</a></li>
+          <li><a class="dropdown-item" href="#">Apps</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="main-container">
       <div class="time" id="current-time"></div>
       <div class="message" id="greeting-message"></div>
@@ -48,4 +61,7 @@
     </div>
   </body>
   <script src="/static/scripts/main.js"></script>
+  <script src="/static/scripts/popper.min.js"></script>
+  <script src="/static/scripts/jquery-3.4.1.js"></script>
+  <script src="/static/scripts/bootstrap.min.js"></script>
 </html>
