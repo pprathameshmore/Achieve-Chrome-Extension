@@ -97,3 +97,7 @@ body {
 #todo-container p {
     font-size: 200%;
 }
+
+#dropdown-btn {
+    color: white;
+}
