@@ -16,6 +16,17 @@
 
   <body>
     <div class="background-container"></div>
+    <!-- Most Visited Sites Popdown  -->
+    <div class="head-container">
+      <div class="dropdown">
+        <a class="btn btn-lg dropdown" id="dropdown-btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          LINKS
+        </a>
+        <ul class="dropdown-menu animation slideDownIn">
+          <div id="urls"></div>
+        </ul>
+      </div>
+    </div>
     <div class="main-container">
       <div class="time" id="current-time"></div>
       <div class="message" id="greeting-message"></div>
@@ -44,8 +55,12 @@
         <div id="navigate"></div>
         <div id="change-btn" title="Change background image"></div>
         <div id="location"></div>
+        <div id="urls"></div>
       </div>
     </div>
   </body>
   <script src="/static/scripts/main.js"></script>
+  <script src="/static/scripts/popper.min.js"></script>
+  <script src="/static/scripts/jquery-3.4.1.js"></script>
+  <script src="/static/scripts/bootstrap.min.js"></script>
 </html>

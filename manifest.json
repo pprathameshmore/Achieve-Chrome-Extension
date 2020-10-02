@@ -15,15 +15,16 @@
         "newtab": "index.html"
     },
 
-    "icons" : {
-        "64" : "static/icons/icons64.png",
-        "32" : "static/icons/icons32.png",
-        "16" : "static/icons/icons16.png"
+    "icons": {
+        "64": "static/icons/icons64.png",
+        "32": "static/icons/icons32.png",
+        "16": "static/icons/icons16.png"
     },
 
-    "permissions" : [
+    "permissions": [
         "activeTab",
-        "storage"
+        "storage",
+        "topSites"
     ]
 
 }

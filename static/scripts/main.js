@@ -17,6 +17,29 @@ const defaultText = "Click here to add.";
 // DOM defaults
 focusInput.style.display = "none";
 
+//Load top sites
+function topSites() {
+  chrome.topSites.get((topVisitedSites) => {
+    const url = document.getElementById("urls");
+    for (var i = 0; i < topVisitedSites.length; i++) {
+      var reducedTitle;
+      if (("" + topVisitedSites[i].title).length > 24) {
+        reducedTitle = ("" + topVisitedSites[i].title).slice(0, 24) + "...";
+      } else {
+        reducedTitle = topVisitedSites[i].title;
+      }
+      url.innerHTML += `<a class="dropdown-item" title="${
+        topVisitedSites[i].title
+      }" style="color: black; text-decoration: none" href="${
+        topVisitedSites[i].url
+      }" target="_blank">${
+        reducedTitle
+      }</a><br>`;
+    }
+    console.log(url);
+  });
+}
+
 // functions
 function fetchImage() {
   const img = new Image();
@@ -178,6 +201,7 @@ function init() {
   showGreetingMessage(new Date().getHours());
   getQuotes();
   fetchImage();
+  topSites();
 }
 
 window.onload = function () {
