@@ -28,15 +28,8 @@ function topSites() {
       } else {
         reducedTitle = topVisitedSites[i].title;
       }
-      url.innerHTML += `<a class="dropdown-item" title="${
-        topVisitedSites[i].title
-      }" style="color: black; text-decoration: none" href="${
-        topVisitedSites[i].url
-      }" target="_blank">${
-        reducedTitle
-      }</a><br>`;
+      url.innerHTML += `<a class="dropdown-item" title="${topVisitedSites[i].title}" style="color: black; font-size:12px ;text-decoration: none" href="${topVisitedSites[i].url}" target="_blank">${reducedTitle}</a><br>`;
     }
-    console.log(url);
   });
 }
 
